@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:tk_composer_server/Resources/Private/Language/locallang_csh" date="2021-11-01T00:00:00Z" product-name="tk_composer_server">
+		<header/>
+		<body>
+			<trans-unit id="username.description" resname="username.description">
+				<target>Benutzername zur HTTP-Basic-Authentifizierung.</target>
+			</trans-unit>
+			<trans-unit id="password.description" resname="password.description">
+				<target>Passwort zur HTTP-Basic-Authentifizierung.</target>
+			</trans-unit>
+			<trans-unit id="all_repositories.description" resname="all_repositories.description">
+				<target>Wenn der Account Zugriff auf alle Repositories hat, müssen diese nicht mehr manuell zugewiesen werden.</target>
+			</trans-unit>
+			<trans-unit id="repository_groups.description" resname="repository_groups.description">
+				<target>Repository-Gruppen, auf die dieser Account Zugriff hat.</target>
+			</trans-unit>
+			<trans-unit id="repositories.description" resname="repositories.description">
+				<target>Repositories, auf die dieser Account Zugriff hat.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

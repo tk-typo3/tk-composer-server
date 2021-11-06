@@ -1,0 +1,43 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  TimonKreis\TkComposerServer\:
+    resource: '../Classes/*'
+  TimonKreis\TkComposerServer\Command\UpdatePackagesCommand:
+    tags:
+      - name: console.command
+        command: composerserver:update
+  TimonKreis\TkComposerServer\EventListener\Frontend\PackagesJsonListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-packagesjson
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+  TimonKreis\TkComposerServer\EventListener\Frontend\WebListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-web
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+        after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\EventListener\Frontend\RepositoryListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-repository
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+        after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\EventListener\Frontend\RobotsTxtListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-robotstxt
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+        after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\EventListener\Frontend\UpdateListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-update
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+        after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\Middleware\Frontend:
+    public: true

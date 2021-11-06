@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:tk_composer_server/Resources/Private/Language/locallang_csh" date="2021-11-01T00:00:00Z" product-name="tk_composer_server">
+		<header/>
+		<body>
+			<trans-unit id="username.description" resname="username.description">
+				<source>Username for HTTP basic auth.</source>
+			</trans-unit>
+			<trans-unit id="password.description" resname="password.description">
+				<source>Password for HTTP basic auth.</source>
+			</trans-unit>
+			<trans-unit id="all_repositories.description" resname="all_repositories.description">
+				<source>If the account has access to all repositories, the repositories don&#039;t need to be added manually.</source>
+			</trans-unit>
+			<trans-unit id="repository_groups.description" resname="repository_groups.description">
+				<source>Add repository groups available for this account.</source>
+			</trans-unit>
+			<trans-unit id="repositories.description" resname="repositories.description">
+				<source>Add repositories available for this account.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

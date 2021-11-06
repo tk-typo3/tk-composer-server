@@ -1,0 +1,38 @@
+<html data-namespace-typo3-fluid="true"
+        lang="en"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:composerserver="http://typo3.org/ns/TimonKreis/TkComposerServer/ViewHelpers">
+
+<footer class="page-footer font-small bg-dark text-white mt-3 pt-4">
+    <div class="container text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 my-3">
+                <h5 class="text-uppercase">{composerserver:extconf(key: 'title')}</h5>
+                <f:if condition="{composerserver:extconf(key: 'footer/description')}">
+                    <p class="text-end">{composerserver:extconf(key: 'footer/description')}</p>
+                </f:if>
+            </div>
+        </div>
+    </div>
+
+    <f:if condition="{composerserver:extconf(key: 'footer/name')}">
+        <div class="footer-copyright text-center py-3">
+            &copy;{f:format.date(date: 'now', format: 'Y')}
+            <f:if condition="{composerserver:extconf(key: 'footer/homepage')}">
+                <f:then>
+                    <a href="{composerserver:extconf(key: 'footer/homepage')}"
+                            rel="noopener noreferrer"
+                            target="_blank">
+                        {composerserver:extconf(key: 'footer/name')}
+                    </a>
+                </f:then>
+                <f:else>
+                    {composerserver:extconf(key: 'footer/name')}
+                </f:else>
+            </f:if>
+            <f:if condition="{composerserver:extConf(key: 'footer/copyrightNotice')}">
+                - {composerserver:extconf(key: 'footer/copyrightNotice')}
+            </f:if>
+        </div>
+    </f:if>
+</footer>

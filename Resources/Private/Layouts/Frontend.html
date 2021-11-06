@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta data-namespace-typo3-fluid="true"
+            xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+            xmlns:composerserver="http://typo3.org/ns/TimonKreis/TkComposerServer/ViewHelpers">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{f:uri.resource(extensionName: 'tk_composer_server', path: 'Icons/Favicon/favicon-32x32.png')}"
+            rel="icon"
+            sizes="32x32"
+            type="image/png">
+    <link href="{f:uri.resource(extensionName: 'tk_composer_server', path: 'Icons/Favicon/favicon-16x16.png')}"
+            rel="icon"
+            sizes="16x16"
+            type="image/png">
+    <link href="{f:uri.resource(extensionName: 'tk_composer_server', path: 'Icons/Favicon/favicon.ico')}"
+            rel="shortcut icon">
+
+    <link href="{f:uri.resource(extensionName: 'tk_composer_server', path: 'Css/frontend.min.css')}" rel="stylesheet">
+
+    <title>{composerserver:extconf(key: 'title')}</title>
+</head>
+<body class="bg-light">
+    <f:render section="Main" />
+
+    <script src="{f:uri.resource(extensionName: 'tk_composer_server', path: 'JavaScript/frontend.min.js')}"></script>
+</body>
+</html>

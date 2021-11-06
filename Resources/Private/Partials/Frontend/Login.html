@@ -1,0 +1,32 @@
+<html data-namespace-typo3-fluid="true" lang="en">
+
+<div class="container d-none" id="login-mask">
+    <form action="/login" method="post">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <label class="m-0" for="fUsername">
+                            <span aria-label="Username" class="bi bi-person-fill"></span>
+                        </label>
+                    </span>
+                    <input class="form-control" id="fUsername" name="username" placeholder="Username">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <label class="m-0" for="fPassword">
+                            <span aria-label="Password" class="bi bi-key-fill"></span>
+                        </label>
+                    </span>
+                    <input class="form-control" id="fPassword" name="password" placeholder="Password" type="password">
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-primary btn-sm" id="login-button" type="submit">
+                        <span aria-hidden="true" class="bi bi-box-arrow-in-right"></span>
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

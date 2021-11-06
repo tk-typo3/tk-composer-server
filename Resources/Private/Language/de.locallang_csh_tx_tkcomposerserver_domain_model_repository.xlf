@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:tk_composer_server/Resources/Private/Language/locallang_csh" date="2021-11-01T00:00:00Z" product-name="tk_composer_server">
+		<header/>
+		<body>
+			<trans-unit id="package_name.description" resname="package_name.description">
+				<target>Paketname</target>
+			</trans-unit>
+			<trans-unit id="url.description" resname="url.description">
+				<target>URL des Repositories, SSH oder HTTP(S).</target>
+			</trans-unit>
+			<trans-unit id="type.description" resname="type.description">
+				<target>Typ des Repositories.</target>
+			</trans-unit>
+			<trans-unit id="access.description" resname="access.description">
+				<target>
+					&lt;ul&gt;
+						&lt;li&gt;Private Repositories sind nur für zugewiesene Accounts sichtbar.&lt;/li&gt;
+						&lt;li&gt;Geschützte Repositories sind für alle angemeldeten Accounts sichtbar.&lt;/li&gt;
+						&lt;li&gt;Öffentliche Repositories sind für jeden sichtbar.&lt;/li&gt;
+					&lt;/ul&gt;
+				</target>
+			</trans-unit>
+			<trans-unit id="hash.description" resname="hash.description">
+				<target>Hash</target>
+			</trans-unit>
+			<trans-unit id="checksum.description" resname="checksum.description">
+				<target>Prüfsumme</target>
+			</trans-unit>
+			<trans-unit id="data.description" resname="data.description">
+				<target>Daten</target>
+			</trans-unit>
+			<trans-unit id="repository_groups.description" resname="repository_groups.description">
+				<target>Repository-Gruppen, die Zugriff auf dieses Paket gewähren.</target>
+			</trans-unit>
+			<trans-unit id="accounts.description" resname="accounts.description">
+				<target>Accounts, die Zugriff auf dieses Repository haben.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

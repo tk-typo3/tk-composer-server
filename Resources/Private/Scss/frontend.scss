@@ -1,0 +1,47 @@
+$primary: #45535f;
+
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/utilities';
+@import 'node_modules/bootstrap/scss/root';
+@import 'node_modules/bootstrap/scss/reboot';
+@import 'node_modules/bootstrap/scss/type';
+@import 'node_modules/bootstrap/scss/containers';
+@import 'node_modules/bootstrap/scss/grid';
+@import 'node_modules/bootstrap/scss/forms';
+@import 'node_modules/bootstrap/scss/buttons';
+@import 'node_modules/bootstrap/scss/nav';
+@import 'node_modules/bootstrap/scss/navbar';
+@import 'node_modules/bootstrap/scss/card';
+@import 'node_modules/bootstrap/scss/alert';
+@import 'node_modules/bootstrap/scss/helpers';
+@import 'node_modules/bootstrap/scss/utilities/api';
+
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons.scss';
+
+@font-face {
+    font-family: 'bootstrap-icons';
+    src: url('../Fonts/BootstrapIcons/bootstrap-icons.woff2') format('woff2'),
+        url('../Fonts/BootstrapIcons/bootstrap-icons.woff') format('woff');
+}
+
+#login-mask {
+    position: relative;
+
+    .card {
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        position: absolute;
+        right: 0;
+        z-index: 5; // Higher than .form-control:focus
+        width: 300px;
+
+        @include media-breakpoint-down(sm) {
+            left: 5vw;
+            right: 5vw;
+            width: auto;
+        }
+    }
+}

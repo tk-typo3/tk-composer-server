@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:tk_composer_server/Resources/Private/Language/locallang" date="2021-11-01T00:00:00Z" product-name="tk_composer_server">
+		<header/>
+		<body>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account" resname="tx_tkcomposerserver_domain_model_account">
+				<source>Account</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account.username" resname="tx_tkcomposerserver_domain_model_account.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account.password" resname="tx_tkcomposerserver_domain_model_account.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account.all_repositories" resname="tx_tkcomposerserver_domain_model_account.all_repositories">
+				<source>Access to all repositories</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account.repository_groups" resname="tx_tkcomposerserver_domain_model_account.repository_groups">
+				<source>Repository Groups</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_account.repositories" resname="tx_tkcomposerserver_domain_model_account.repositories">
+				<source>Repositories</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository" resname="tx_tkcomposerserver_domain_model_repository">
+				<source>Repository</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.package_name" resname="tx_tkcomposerserver_domain_model_repository.package_name">
+				<source>Package Name</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.url" resname="tx_tkcomposerserver_domain_model_repository.url">
+				<source>URL</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.type" resname="tx_tkcomposerserver_domain_model_repository.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.access" resname="tx_tkcomposerserver_domain_model_repository.access">
+				<source>Access</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.hash" resname="tx_tkcomposerserver_domain_model_repository.hash">
+				<source>Hash</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.checksum" resname="tx_tkcomposerserver_domain_model_repository.checksum">
+				<source>Checksum</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.data" resname="tx_tkcomposerserver_domain_model_repository.data">
+				<source>Data</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repositorygroup" resname="tx_tkcomposerserver_domain_model_repositorygroup">
+				<source>Repository Group</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repositorygroup.name" resname="tx_tkcomposerserver_domain_model_repositorygroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repositorygroup.repositories" resname="tx_tkcomposerserver_domain_model_repositorygroup.repositories">
+				<source>Repositories</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.accounts" resname="tx_tkcomposerserver_domain_model_repository.accounts">
+				<source>Accounts</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repository.repository_groups" resname="tx_tkcomposerserver_domain_model_repository.repository_groups">
+				<source>Repository Groups</source>
+			</trans-unit>
+			<trans-unit id="tx_tkcomposerserver_domain_model_repositorygroup.accounts" resname="tx_tkcomposerserver_domain_model_repositorygroup.accounts">
+				<source>Accounts</source>
+			</trans-unit>
+			<trans-unit id="Access.Private" resname="Access.Private">
+				<source>Private (Accessible for assigned accounts only)</source>
+			</trans-unit>
+			<trans-unit id="Access.Protected" resname="Access.Protected">
+				<source>Protected (Accessible for all active accounts)</source>
+			</trans-unit>
+			<trans-unit id="Access.Public" resname="Access.Public">
+				<source>Public (Accessible for everyone)</source>
+			</trans-unit>
+			<trans-unit id="Type.Git" resname="Type.Git">
+				<source>Git</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

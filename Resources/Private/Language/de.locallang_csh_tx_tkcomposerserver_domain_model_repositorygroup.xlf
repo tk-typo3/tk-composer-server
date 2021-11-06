@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:tk_composer_server/Resources/Private/Language/locallang_csh" date="2021-11-01T00:00:00Z" product-name="tk_composer_server">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<target>Name der Repository-Gruppe.</target>
+			</trans-unit>
+			<trans-unit id="repositories.description" resname="repositories.description">
+				<target>Repositories dieser Repository-Gruppe.</target>
+			</trans-unit>
+			<trans-unit id="accounts.description" resname="accounts.description">
+				<target>Accounts, die auf diese Repository-Gruppe Zugriff haben.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
