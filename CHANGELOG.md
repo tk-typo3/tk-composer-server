@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ## [Unreleased]
 * Changed
   * Web frontend listener updated to skip handling if disabled.
+  * Frontend completely disabled, if no response handler is found.
 
 ## [1.0.0] - 2021-11-06
 Initial version committed.

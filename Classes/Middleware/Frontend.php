@@ -49,6 +49,10 @@ class Frontend implements MiddlewareInterface
 
         try {
             $this->eventDispatcher->dispatch($requestEvent);
+
+            if (!$requestEvent->getResponse()) {
+                throw new \Exception('Invalid frontend request.');
+            }
         } catch (\Exception $e) {
             $response = new Response();
             $response = $response->withHeader('Content-Type', 'text/plain');
@@ -58,6 +62,6 @@ class Frontend implements MiddlewareInterface
             $requestEvent->setResponse($response);
         }
 
-        return $requestEvent->getResponse() ?? $handler->handle($request);
+        return $requestEvent->getResponse();
     }
 }
