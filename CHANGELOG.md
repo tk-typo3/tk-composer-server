@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Exclude flags updated to hide inaccessible fields in access management.
   * Hook changed to update non-defined repository package on every save.
   * Package includes changed to reflect the package name instead of the repository UID.
+  * ReadMe updated.
 
 ## [1.0.0] - 2021-11-06
 Initial version committed.
