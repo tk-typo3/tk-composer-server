@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * TCA order of fields `repository_groups` and `accounts` of repositories switched.
   * Repository label updated to display URL and package name.
   * Exclude flags updated to hide inaccessible fields in access management.
+  * Hook changed to update non-defined repository package on every save.
 
 ## [1.0.0] - 2021-11-06
 Initial version committed.

@@ -35,30 +35,34 @@ class UpdateHook
         array $fields,
         DataHandler $dataHandler
     ) : void {
-        if ($table == RepositoryRepository::TABLE && $action == 'new') {
+        if ($table == RepositoryRepository::TABLE && ($action == 'new' || $action == 'update')) {
+            $uid = $action == 'new' ? $dataHandler->substNEWwithIDs[$uid] : $uid;
+
             /** @var RepositoryRepository $repositoryRepository */
             $repositoryRepository = GeneralUtility::makeInstance(RepositoryRepository::class);
             /** @var Repository $repository */
-            $repository = $repositoryRepository->findByUid($dataHandler->substNEWwithIDs[$uid]);
+            $repository = $repositoryRepository->findByUid($uid);
 
-            try {
-                /** @var UpdateService $updateService */
-                $updateService = GeneralUtility::makeInstance(UpdateService::class);
-                $updateService->updateRepository($repository);
-            } catch (\Exception $e) {
-                /** @var FlashMessage $message */
-                $message = GeneralUtility::makeInstance(
-                    FlashMessage::class,
-                    $e->getMessage(),
-                    '',
-                    FlashMessage::ERROR,
-                    false
-                );
+            if (!$repository->getPackageName()) {
+                try {
+                    /** @var UpdateService $updateService */
+                    $updateService = GeneralUtility::makeInstance(UpdateService::class);
+                    $updateService->updateRepository($repository);
+                } catch (\Exception $e) {
+                    /** @var FlashMessage $message */
+                    $message = GeneralUtility::makeInstance(
+                        FlashMessage::class,
+                        $e->getMessage(),
+                        '',
+                        FlashMessage::ERROR,
+                        false
+                    );
 
-                /** @var FlashMessageService $messageService */
-                $messageService = GeneralUtility::makeInstance(FlashMessageService::class);
-                $messageQueue = $messageService->getMessageQueueByIdentifier();
-                $messageQueue->addMessage($message);
+                    /** @var FlashMessageService $messageService */
+                    $messageService = GeneralUtility::makeInstance(FlashMessageService::class);
+                    $messageQueue = $messageService->getMessageQueueByIdentifier();
+                    $messageQueue->addMessage($message);
+                }
             }
         }
     }
