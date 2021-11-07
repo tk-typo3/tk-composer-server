@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
-use Symfony\Component\HttpFoundation\Cookie;
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Domain\Repository\AccountRepository;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
@@ -57,9 +56,14 @@ class WebListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        if ($this->frontendRequestEvent->getUri() == 'login' || $this->frontendRequestEvent->getUri() == 'logout') {
-            $this->checkIfFrontendIsDisabled();
+        // Check if web frontend is enabled
+        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable'])
+            && $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable']
+        ) {
+            return;
+        }
 
+        if ($this->frontendRequestEvent->getUri() == 'login' || $this->frontendRequestEvent->getUri() == 'logout') {
             $suffix = '';
 
             if ($this->frontendRequestEvent->getUri() == 'login') {
@@ -87,8 +91,6 @@ class WebListener extends AbstractFrontendListener
 
             exit;
         } elseif ($this->frontendRequestEvent->getUri() == '') {
-            $this->checkIfFrontendIsDisabled();
-
             /** @var Site $site */
             $site = $this->frontendRequestEvent->getRequest()->getAttribute('site');
 
@@ -138,18 +140,6 @@ class WebListener extends AbstractFrontendListener
             ]);
 
             $this->setHtmlResponse($standaloneView);
-        }
-    }
-
-    /**
-     * @throws \Exception
-     */
-    protected function checkIfFrontendIsDisabled() : void
-    {
-        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable'])
-            && $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable']
-        ) {
-            throw new \Exception('Web frontend disabled!');
         }
     }
 }
