@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 * Changed
   * Web frontend listener updated to skip handling if disabled.
   * Frontend completely disabled, if no response handler is found.
+  * TCA order of fields `repository_groups` and `accounts` of repositories switched.
 
 ## [1.0.0] - 2021-11-06
 Initial version committed.

@@ -60,33 +60,6 @@ $tca['columns']['access']['config']['items'] = [
     ],
 ];
 
-// repository_groups
-$tca['columns']['repository_groups'] = [
-    'exclude' => true,
-    'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.repository_groups',
-    'displayCond' => 'FIELD:access:=:' . TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE,
-    'config' => [
-        'type' => 'select',
-        'renderType' => 'selectMultipleSideBySide',
-        'foreign_table' => 'tx_tkcomposerserver_domain_model_repositorygroup',
-        'MM' => 'tx_tkcomposerserver_repositorygroup_repository_mm',
-        'MM_opposite_field' => 'repositories',
-        'autoSizeMax' => 30,
-        'maxitems' => 9999,
-        'multiple' => 0,
-        'fieldControl' => [
-            'addRecord' => [
-                'disabled' => true,
-            ],
-            'listModule' => [
-                'disabled' => true,
-            ],
-        ],
-    ],
-];
-$tca['interface']['showRecordFieldList'] .= ', repository_groups';
-$tca['types']['1']['showitem'] = str_replace('access,', 'access,repository_groups,', $tca['types']['1']['showitem']);
-
 // accounts
 $tca['columns']['accounts'] = [
     'exclude' => true,
@@ -112,8 +85,33 @@ $tca['columns']['accounts'] = [
         ],
     ],
 ];
-$tca['interface']['showRecordFieldList'] .= ',accounts';
-$tca['types']['1']['showitem'] = str_replace('access,', 'access,accounts,', $tca['types']['1']['showitem']);
+$tca['types']['1']['showitem'] = str_replace(' access,', ' access, accounts,', $tca['types']['1']['showitem']);
+
+// repository_groups
+$tca['columns']['repository_groups'] = [
+    'exclude' => true,
+    'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.repository_groups',
+    'displayCond' => 'FIELD:access:=:' . TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE,
+    'config' => [
+        'type' => 'select',
+        'renderType' => 'selectMultipleSideBySide',
+        'foreign_table' => 'tx_tkcomposerserver_domain_model_repositorygroup',
+        'MM' => 'tx_tkcomposerserver_repositorygroup_repository_mm',
+        'MM_opposite_field' => 'repositories',
+        'autoSizeMax' => 30,
+        'maxitems' => 9999,
+        'multiple' => 0,
+        'fieldControl' => [
+            'addRecord' => [
+                'disabled' => true,
+            ],
+            'listModule' => [
+                'disabled' => true,
+            ],
+        ],
+    ],
+];
+$tca['types']['1']['showitem'] = str_replace(' access,', ' access, repository_groups,', $tca['types']['1']['showitem']);
 
 // hash
 $tca['columns']['hash']['config']['type'] = 'passthrough';
