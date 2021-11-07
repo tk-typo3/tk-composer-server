@@ -15,7 +15,7 @@ $tca['ctrl']['iconfile']
     = 'EXT:tk_composer_server/Resources/Public/Icons/tx_tkcomposerserver_domain_model_repository.svg';
 
 // Sort entries
-$tca['ctrl']['default_sortby'] = 'url ASC';
+$tca['ctrl']['default_sortby'] = 'package_name ASC';
 
 // Label
 $tca['ctrl']['label_userFunc'] = TimonKreis\TkComposerServer\Userfuncs\Tca::class . '->repositoryLabel';
