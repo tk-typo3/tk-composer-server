@@ -19,6 +19,10 @@ class Tca
      */
     public function repositoryLabel(array &$parameters) : void
     {
-        $parameters['title'] = $parameters['row']['package_name'] ?: '[' . $parameters['row']['url'] . ']';
+        $parameters['title'] = '[' . $parameters['row']['url'] . ']';
+
+        if ($parameters['row']['package_name'] ?: '') {
+            $parameters['title'] = $parameters['row']['package_name'] . ' ' . $parameters['title'];
+        }
     }
 }
