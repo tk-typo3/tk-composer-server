@@ -41,29 +41,30 @@ class RepositoryListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        if (!preg_match('/^include\/\d+\$[0-9a-f]{64}\.json$/', $this->frontendRequestEvent->getUri())) {
+        $pattern = '/^include\/' . Repository::PACKAGE_NAME_PATTERN . '\$[0-9a-f]{64}\.json$/';
+
+        if (!preg_match($pattern, $this->frontendRequestEvent->getUri())) {
             return;
         }
 
-        [$repositoryUid, $checksum] = explode('$', substr($this->frontendRequestEvent->getUri(), 8, -5));
-        $repositoryUid = (int)$repositoryUid;
+        [$packageName, $checksum] = explode('$', substr($this->frontendRequestEvent->getUri(), 8, -5));
 
         /** @var Repository $repository */
-        $repository = $this->repositoryRepository->findByUid($repositoryUid);
+        $repository = $this->repositoryRepository->findByPackageName($packageName);
 
         if (!$repository) {
-            throw new \Exception(sprintf('Repository UID "%s" does not exist.', $repositoryUid), 1603305837);
+            throw new \Exception(sprintf('Package "%s" does not exist.', $packageName), 1603305837);
         }
 
         if ($repository->getChecksum() != $checksum) {
-            throw new \Exception(sprintf('Invalid hash for repository UID "%s".', $repositoryUid), 1603305845);
+            throw new \Exception(sprintf('Invalid hash for package "%s".', $packageName), 1603305845);
         }
 
         if ($repository->getAccess() != Repository::ACCESS_PUBLIC) {
             $account = $this->accountService->getAuthorizedAccount();
 
             if (!$account) {
-                throw new \Exception(sprintf('Unable to access repository UID "%s".', $repositoryUid), 1603305970);
+                throw new \Exception(sprintf('Unable to access package "%s".', $packageName), 1603305970);
             }
 
             if ($repository->getAccess() == Repository::ACCESS_PRIVATE && !$account->getAllRepositories()) {
@@ -79,7 +80,7 @@ class RepositoryListener extends AbstractFrontendListener
                 }
 
                 if (!$allowed) {
-                    throw new \Exception(sprintf('Unable to access repository UID "%s".', $repositoryUid), 1603306135);
+                    throw new \Exception(sprintf('Unable to access package "%s".', $packageName), 1603306135);
                 }
             }
         }

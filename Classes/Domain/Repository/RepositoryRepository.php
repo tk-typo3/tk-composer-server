@@ -76,4 +76,25 @@ class RepositoryRepository extends AbstractRepository
 
         return $this->getMappedData(Repository::class, $query->execute()->fetchAllAssociative());
     }
+
+    /**
+     * Find repository by package name
+     *
+     * @param string $packageName
+     * @return Repository|null
+     * @throws \Exception
+     */
+    public function findByPackageName(string $packageName) : ?Repository
+    {
+        $queryBuilder = $this->getQueryBuilder();
+
+        $query = $queryBuilder
+            ->select('*')
+            ->where($queryBuilder->expr()->eq('package_name', $queryBuilder->createNamedParameter($packageName)))
+            ->setMaxResults(1);
+
+        $package = $this->getMappedData(Repository::class, $query->execute()->fetchAllAssociative());
+
+        return $package[0] ?? null;
+    }
 }

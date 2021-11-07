@@ -53,7 +53,7 @@ class PackagesJsonListener extends AbstractFrontendListener
         $repositories = $this->repositoryRepository->findByAccount($account);
 
         foreach ($repositories as $repository) {
-            $include = sprintf('include/%s$%s.json', $repository->getUid(), $repository->getChecksum());
+            $include = sprintf('include/%s$%s.json', $repository->getPackageName(), $repository->getChecksum());
 
             $data['includes'][$include] = [
                 'sha256' => $repository->getChecksum(),

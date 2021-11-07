@@ -24,6 +24,9 @@ class Repository extends AbstractEntity
         self::TYPE_GIT => 'vcs',
     ];
 
+    /** @see https://getcomposer.org/doc/04-schema.md#name */
+    public const PACKAGE_NAME_PATTERN = '[a-z0-9]([_.-]?[a-z0-9]+)*\/[a-z0-9](([_.]?|-{0,2})[a-z0-9]+)*';
+
     /**
      * @var string
      */
