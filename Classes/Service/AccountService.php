@@ -62,7 +62,7 @@ class AccountService implements SingletonInterface
      * @param string $password
      * @return string
      */
-    public function getPasswordHashByPassword(string $password): string
+    public function getPasswordHashByPassword(string $password) : string
     {
         return hash('sha256', $password);
     }
