@@ -64,7 +64,7 @@ return [
         ],
 
         'package_name' => [
-            'exclude' => true,
+            'exclude' => false,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.package_name',
             'config' => [
@@ -116,7 +116,7 @@ return [
             ],
         ],
         'hash' => [
-            'exclude' => true,
+            'exclude' => false,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.hash',
             'config' => [
@@ -127,7 +127,7 @@ return [
             ],
         ],
         'checksum' => [
-            'exclude' => true,
+            'exclude' => false,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.checksum',
             'config' => [
@@ -138,7 +138,7 @@ return [
             ],
         ],
         'data' => [
-            'exclude' => true,
+            'exclude' => false,
             'l10n_mode' => 'exclude',
             'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.data',
             'config' => [
