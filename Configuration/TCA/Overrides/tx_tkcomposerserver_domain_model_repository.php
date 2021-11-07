@@ -6,6 +6,11 @@
  */
 declare(strict_types = 1);
 
+use TimonKreis\TkComposerServer\Domain\Model\Repository;
+use TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup;
+use TimonKreis\TkComposerServer\Userfuncs\Tca;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+
 defined('TYPO3_MODE') || die();
 
 $tca = &$GLOBALS['TCA']['tx_tkcomposerserver_domain_model_repository'];
@@ -18,7 +23,7 @@ $tca['ctrl']['iconfile']
 $tca['ctrl']['default_sortby'] = 'package_name ASC';
 
 // Label
-$tca['ctrl']['label_userFunc'] = TimonKreis\TkComposerServer\Userfuncs\Tca::class . '->repositoryLabel';
+$tca['ctrl']['label_userFunc'] = Tca::class . '->repositoryLabel';
 
 TYPO3\CMS\Core\Utility\GeneralUtility::rmFromList('hash', $tca['ctrl']['searchFields']);
 TYPO3\CMS\Core\Utility\GeneralUtility::rmFromList('checksum', $tca['ctrl']['searchFields']);
@@ -38,25 +43,25 @@ $tca['columns']['url']['config']['eval'] .= ',unique';
 $tca['columns']['type']['config']['items'] = [
     [
         'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang.xlf:Type.Git',
-        TimonKreis\TkComposerServer\Domain\Model\Repository::TYPE_GIT,
+        Repository::TYPE_GIT,
     ],
 ];
 
 // access
-$tca['columns']['access']['config']['default'] = TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE;
+$tca['columns']['access']['config']['default'] = Repository::ACCESS_PRIVATE;
 $tca['columns']['access']['onChange'] = 'reload';
 $tca['columns']['access']['config']['items'] = [
     [
         'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang.xlf:Access.Private',
-        TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE,
+        Repository::ACCESS_PRIVATE,
     ],
     [
         'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang.xlf:Access.Protected',
-        TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PROTECTED,
+        Repository::ACCESS_PROTECTED,
     ],
     [
         'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang.xlf:Access.Public',
-        TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PUBLIC,
+        Repository::ACCESS_PUBLIC,
     ],
 ];
 
@@ -64,7 +69,7 @@ $tca['columns']['access']['config']['items'] = [
 $tca['columns']['accounts'] = [
     'exclude' => true,
     'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.accounts',
-    'displayCond' => 'FIELD:access:=:' . TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE,
+    'displayCond' => 'FIELD:access:=:' . Repository::ACCESS_PRIVATE,
     'config' => [
         'type' => 'select',
         'renderType' => 'selectMultipleSideBySide',
@@ -91,7 +96,7 @@ $tca['types']['1']['showitem'] = str_replace(' access,', ' access, accounts,', $
 $tca['columns']['repository_groups'] = [
     'exclude' => true,
     'label' => 'LLL:EXT:tk_composer_server/Resources/Private/Language/locallang_db.xlf:tx_tkcomposerserver_domain_model_repository.repository_groups',
-    'displayCond' => 'FIELD:access:=:' . TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE,
+    'displayCond' => 'FIELD:access:=:' . Repository::ACCESS_PRIVATE,
     'config' => [
         'type' => 'select',
         'renderType' => 'selectMultipleSideBySide',
@@ -122,6 +127,6 @@ $tca['columns']['checksum']['config']['type'] = 'passthrough';
 // data
 $tca['columns']['data']['config']['type'] = 'passthrough';
 
-TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup::group($tca, ['url', 'hidden']);
-TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup::group($tca, ['type', 'access']);
-TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup::group($tca, ['starttime', 'endtime']);
+FieldsGroup::group($tca, ['url', 'hidden']);
+FieldsGroup::group($tca, ['type', 'access']);
+FieldsGroup::group($tca, ['starttime', 'endtime']);

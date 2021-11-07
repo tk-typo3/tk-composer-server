@@ -6,6 +6,9 @@
  */
 declare(strict_types = 1);
 
+use TimonKreis\TkComposerServer\Domain\Model\Repository;
+use TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup;
+
 defined('TYPO3_MODE') || die();
 
 $tca = &$GLOBALS['TCA']['tx_tkcomposerserver_domain_model_repositorygroup'];
@@ -23,8 +26,7 @@ unset($tca['columns']['hidden']['config']['renderType']);
 $tca['columns']['name']['config']['size'] = 40;
 
 // repositories
-$tca['columns']['repositories']['config']['foreign_table_where']
-    = 'access = ' . TimonKreis\TkComposerServer\Domain\Model\Repository::ACCESS_PRIVATE;
+$tca['columns']['repositories']['config']['foreign_table_where'] = 'access = ' . Repository::ACCESS_PRIVATE;
 unset($tca['columns']['repositories']['config']['size']);
 
 // accounts
@@ -58,5 +60,5 @@ $tca['types']['1']['showitem'] = str_replace('hidden, ', 'hidden,  accounts,', $
 $tca['columns']['repositories']['config']['fieldControl']['addRecord']['disabled'] = true;
 $tca['columns']['repositories']['config']['fieldControl']['editPopup']['disabled'] = true;
 
-TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup::group($tca, ['name', 'hidden']);
-TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup::group($tca, ['starttime', 'endtime']);
+FieldsGroup::group($tca, ['name', 'hidden']);
+FieldsGroup::group($tca, ['starttime', 'endtime']);
