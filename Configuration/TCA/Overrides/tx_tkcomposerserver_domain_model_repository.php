@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Tools\TCA\FieldsGroup;
-use TimonKreis\TkComposerServer\Userfuncs\Tca;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 defined('TYPO3_MODE') || die();
@@ -22,7 +21,7 @@ $tca['ctrl']['iconfile']
 $tca['ctrl']['default_sortby'] = 'package_name ASC';
 
 // Label
-$tca['ctrl']['label_userFunc'] = Tca::class . '->repositoryLabel';
+$tca['ctrl']['label_alt'] = 'url';
 
 $tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('hash', $tca['ctrl']['searchFields']);
 $tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('checksum', $tca['ctrl']['searchFields']);
