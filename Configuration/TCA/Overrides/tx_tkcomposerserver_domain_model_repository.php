@@ -32,7 +32,7 @@ $tca['columns']['package_name']['config']['type'] = 'passthrough';
 
 // url
 $tca['columns']['url']['config']['size'] = 50;
-$tca['columns']['url']['config']['eval'] = 'unique';
+$tca['columns']['url']['config']['eval'] .= ',unique';
 
 // type
 $tca['columns']['type']['config']['items'] = [
