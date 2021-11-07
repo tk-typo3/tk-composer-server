@@ -25,9 +25,9 @@ $tca['ctrl']['default_sortby'] = 'package_name ASC';
 // Label
 $tca['ctrl']['label_userFunc'] = Tca::class . '->repositoryLabel';
 
-TYPO3\CMS\Core\Utility\GeneralUtility::rmFromList('hash', $tca['ctrl']['searchFields']);
-TYPO3\CMS\Core\Utility\GeneralUtility::rmFromList('checksum', $tca['ctrl']['searchFields']);
-TYPO3\CMS\Core\Utility\GeneralUtility::rmFromList('data', $tca['ctrl']['searchFields']);
+$tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('hash', $tca['ctrl']['searchFields']);
+$tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('checksum', $tca['ctrl']['searchFields']);
+$tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('data', $tca['ctrl']['searchFields']);
 
 // hidden
 unset($tca['columns']['hidden']['config']['renderType']);

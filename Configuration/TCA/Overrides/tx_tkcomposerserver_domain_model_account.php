@@ -20,6 +20,8 @@ $tca['ctrl']['iconfile'] = 'EXT:tk_composer_server/Resources/Public/Icons/tx_tkc
 // Sort entries
 $tca['ctrl']['default_sortby'] = 'username ASC';
 
+$tca['ctrl']['searchFields'] = GeneralUtility::rmFromList('password', $tca['ctrl']['searchFields']);
+
 // username
 $tca['columns']['username']['config']['size'] = 50;
 
