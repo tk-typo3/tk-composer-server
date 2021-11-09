@@ -24,7 +24,7 @@ defined('TYPO3_MODE') || die();
     }
 
     if (!isset($extconf['frontend']['footer']['copyrightNotice'])) {
-        $extconf['frontend']['copyrightNotice'] = 'All rights reserved';
+        $extconf['frontend']['footer']['copyrightNotice'] = 'All rights reserved';
     }
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']
