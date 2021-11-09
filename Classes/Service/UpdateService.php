@@ -18,6 +18,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
 
@@ -88,6 +89,12 @@ class UpdateService implements SingletonInterface, LoggerAwareInterface
         ];
 
         $config = Factory::createConfig();
+        $config->merge([
+            'config' => [
+                'cache-dir' => Environment::getVarPath() . '/composer',
+            ],
+        ]);
+
         $nullIo = new NullIO();
         $nullIo->loadConfiguration($config);
         $downloader = new HttpDownloader($nullIo, $config);
