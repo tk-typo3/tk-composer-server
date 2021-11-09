@@ -27,6 +27,10 @@ defined('TYPO3_MODE') || die();
         $extconf['frontend']['footer']['copyrightNotice'] = 'All rights reserved';
     }
 
+    if (!isset($extconf['updateUri'])) {
+        $extconf['updateUri'] = 'update';
+    }
+
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']
         = 'EXT:tk_composer_server/Resources/Public/Icons/logo-white.svg';
 })('tk_composer_server');

@@ -33,7 +33,7 @@ class UpdateListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        $updateUri = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['updateUri'] ?? 'update';
+        $updateUri = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['updateUri'];
 
         if ($this->frontendRequestEvent->getUri() != $updateUri) {
             return;
