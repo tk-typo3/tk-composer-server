@@ -11,6 +11,7 @@ use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Domain\Repository\AccountRepository;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\AccountService;
+use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -57,9 +58,7 @@ class WebListener extends AbstractFrontendListener
     protected function execute() : void
     {
         // Check if web frontend is enabled
-        if (isset($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable'])
-            && $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend']['disable']
-        ) {
+        if (ExtconfService::get('frontend/disable')) {
             return;
         }
 

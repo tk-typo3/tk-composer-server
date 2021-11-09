@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\ViewHelpers;
 
+use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
@@ -36,32 +37,12 @@ class ExtconfViewHelper extends AbstractViewHelper
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      * @return string
-     * @throws \Exception
      */
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) : string {
-        static $values = [];
-
-        if (!array_key_exists($arguments['key'], $values)) {
-            $parts = explode('/', $arguments['key']);
-            $value = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['frontend'];
-
-            foreach ($parts as $part) {
-                if (is_array($value) && isset($value[$part])) {
-                    $value = $value[$part];
-                } else {
-                    $value = '';
-
-                    break;
-                }
-            }
-
-            $values[$arguments['key']] = $value;
-        }
-
-        return $values[$arguments['key']];
+        return ExtconfService::get('frontend/' . $arguments['key']);
     }
 }

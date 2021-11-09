@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
+use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TimonKreis\TkComposerServer\Service\UpdateService;
 
 /**
@@ -33,9 +34,7 @@ class UpdateListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        $updateUri = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server']['updateUri'];
-
-        if ($this->frontendRequestEvent->getUri() != $updateUri) {
+        if ($this->frontendRequestEvent->getUri() != ExtconfService::get('updateUri')) {
             return;
         }
 

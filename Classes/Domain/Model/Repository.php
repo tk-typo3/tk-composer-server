@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\Domain\Model;
 
+use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -201,6 +202,6 @@ class Repository extends AbstractEntity
     public function setData(array $data) : void
     {
         $this->data = json_encode($data, JSON_UNESCAPED_SLASHES);
-        $this->checksum = hash('sha256', $this->data);
+        $this->checksum = hash(ExtconfService::get('hashingAlgorithm'), $this->data);
     }
 }

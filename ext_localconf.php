@@ -31,6 +31,10 @@ defined('TYPO3_MODE') || die();
         $extconf['updateUri'] = 'update';
     }
 
+    if (!isset($extconf['hashingAlgorithm'])) {
+        $extconf['hashingAlgorithm'] = 'sha256';
+    }
+
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']
         = 'EXT:tk_composer_server/Resources/Public/Icons/logo-white.svg';
 })('tk_composer_server');

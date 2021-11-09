@@ -9,6 +9,7 @@ namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\AccountService;
+use TimonKreis\TkComposerServer\Service\ExtconfService;
 
 /**
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
@@ -56,7 +57,7 @@ class PackagesJsonListener extends AbstractFrontendListener
             $include = sprintf('include/%s$%s.json', $repository->getPackageName(), $repository->getChecksum());
 
             $data['includes'][$include] = [
-                'sha256' => $repository->getChecksum(),
+                ExtconfService::get('hashingAlgorithm') => $repository->getChecksum(),
             ];
         }
 
