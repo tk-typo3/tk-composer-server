@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ## [Unreleased]
 * Fixed
   * Configuration variable for copyright notice fixed.
+  * Return type of ExtconfViewHelper fixed.
 * Added
   * Service added to optimize handling of EXTCONF values.
   * Configuration option for cookie name added.
