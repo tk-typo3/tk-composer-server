@@ -36,8 +36,8 @@ class AccountService implements SingletonInterface
      */
     public function getAuthorizedAccount() : ?Account
     {
-        if (isset($_COOKIE['auth'])) {
-            [$username, $passwordHash] = explode(':', $_COOKIE['auth'], 2);
+        if (isset($_COOKIE[ExtconfService::get('frontend/cookieName')])) {
+            [$username, $passwordHash] = explode(':', $_COOKIE[ExtconfService::get('frontend/cookieName')], 2);
 
             return $this->accountRepository->findByUsernameAndPasswordHash($username, $passwordHash);
         }

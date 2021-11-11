@@ -71,7 +71,7 @@ class WebListener extends AbstractFrontendListener
 
                 if ($this->accountRepository->findByUsernameAndPassword($username, $password)) {
                     setcookie(
-                        'auth',
+                        ExtconfService::get('frontend/cookieName'),
                         $username . ':' . $this->accountService->getPasswordHashByPassword($password),
                         time() + 3600
                     );
@@ -83,7 +83,7 @@ class WebListener extends AbstractFrontendListener
                 }
             } else {
                 // Invalidate cookie
-                setcookie('auth', '', time() - 86400);
+                setcookie(ExtconfService::get('frontend/cookieName'), '', time() - 86400);
             }
 
             header('Location: /' . ($suffix ? '?' . $suffix : ''), true, 302);

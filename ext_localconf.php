@@ -23,6 +23,10 @@ defined('TYPO3_MODE') || die();
         $extconf['frontend']['disable'] = false;
     }
 
+    if (!isset($extconf['frontend']['cookieName'])) {
+        $extconf['frontend']['cookieName'] = 'auth';
+    }
+
     if (!isset($extconf['frontend']['title'])) {
         $extconf['frontend']['title'] = 'Composer Server';
     }
