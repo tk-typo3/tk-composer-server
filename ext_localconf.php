@@ -19,6 +19,10 @@ defined('TYPO3_MODE') || die();
 
     $extconf = &$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server'];
 
+    if (!isset($extconf['frontend']['disable'])) {
+        $extconf['frontend']['disable'] = false;
+    }
+
     if (!isset($extconf['frontend']['title'])) {
         $extconf['frontend']['title'] = 'Composer Server';
     }
