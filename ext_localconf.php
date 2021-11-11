@@ -36,7 +36,7 @@ defined('TYPO3_MODE') || die();
     }
 
     if (!isset($extconf['frontend']['footer']['copyrightNotice'])) {
-        $extconf['frontend']['footer']['copyrightNotice'] = 'All rights reserved';
+        $extconf['frontend']['footer']['copyrightNotice'] = 'All rights reserved.';
     }
 
     if (!isset($extconf['updateUri'])) {
