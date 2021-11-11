@@ -73,7 +73,7 @@ class WebListener extends AbstractFrontendListener
                     setcookie(
                         ExtconfService::get('frontend/cookieName'),
                         $username . ':' . $this->accountService->getPasswordHashByPassword($password),
-                        time() + 3600
+                        time() + ExtconfService::get('frontend/cookieLifetime')
                     );
                 } else {
                     // Prevent brute-forcing
