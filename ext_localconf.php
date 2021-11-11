@@ -31,6 +31,10 @@ defined('TYPO3_MODE') || die();
         $extconf['frontend']['cookieLifetime'] = 3600;
     }
 
+    if (!isset($extconf['frontend']['bruteForceSleepDuration'])) {
+        $extconf['frontend']['bruteForceSleepDuration'] = 2;
+    }
+
     if (!isset($extconf['frontend']['title'])) {
         $extconf['frontend']['title'] = 'Composer Server';
     }

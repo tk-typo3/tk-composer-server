@@ -77,7 +77,7 @@ class WebListener extends AbstractFrontendListener
                     );
                 } else {
                     // Prevent brute-forcing
-                    sleep(2);
+                    sleep(ExtconfService::get('frontend/bruteForceSleepDuration'));
 
                     $suffix = 'login-error';
                 }
