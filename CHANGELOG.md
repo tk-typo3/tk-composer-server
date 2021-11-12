@@ -12,14 +12,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Configuration option for cookie name added.
   * Configuration option for cookie lifetime added.
   * Configuration option for brute force sleep duration added.
-  * Update command renamed.
-  * Template paths made configurable.
-  * Command description updated.
+  * Option added to disable update URI.
 * Changed
   * Password field changed to password type.
   * Configuration variable for update URI moved to _ext_localconf.php_.
   * Composer cache directory set.
   * Default value for frontend disabling added.
+  * Update command renamed.
+  * Template paths made configurable.
+  * Command description updated.
 
 ## [1.1.1] - 2021-11-07
 * Fixed
