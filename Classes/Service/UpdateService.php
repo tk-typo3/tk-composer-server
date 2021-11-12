@@ -103,6 +103,14 @@ class UpdateService implements SingletonInterface, LoggerAwareInterface
         try {
             $driver = $vcsRepository->getDriver();
             $packages = $vcsRepository->getPackages();
+
+            if ($driver === null) {
+                throw new \Exception('Unable to determine the driver');
+            }
+
+            if ($packages === null) {
+                throw new \Exception('Unable to determine the packages');
+            }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
 
@@ -112,7 +120,7 @@ class UpdateService implements SingletonInterface, LoggerAwareInterface
         $hash = md5(json_encode([$driver->getBranches(), $driver->getTags()]));
 
         // Check if reload is required
-        if (!$forceReload && $repository->getHash() == $hash) {
+        if (!$forceReload && $repository->getHash() === $hash) {
             return;
         }
 

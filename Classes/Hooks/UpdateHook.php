@@ -11,6 +11,7 @@ use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\UpdateService;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -35,8 +36,8 @@ class UpdateHook
         array $fields,
         DataHandler $dataHandler
     ) : void {
-        if ($table == RepositoryRepository::TABLE && ($action == 'new' || $action == 'update')) {
-            $uid = $action == 'new' ? $dataHandler->substNEWwithIDs[$uid] : $uid;
+        if ($table === RepositoryRepository::TABLE && ($action === 'new' || $action === 'update')) {
+            $uid = $action === 'new' ? $dataHandler->substNEWwithIDs[$uid] : $uid;
 
             /** @var RepositoryRepository $repositoryRepository */
             $repositoryRepository = GeneralUtility::makeInstance(RepositoryRepository::class);
@@ -54,7 +55,7 @@ class UpdateHook
                         FlashMessage::class,
                         $e->getMessage(),
                         '',
-                        FlashMessage::ERROR,
+                        AbstractMessage::ERROR,
                         false
                     );
 

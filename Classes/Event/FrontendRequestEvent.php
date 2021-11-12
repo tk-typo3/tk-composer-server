@@ -28,7 +28,7 @@ class FrontendRequestEvent
     /**
      * @var Response|null
      */
-    protected $response = null;
+    protected $response;
 
     /**
      * @param ServerRequestInterface $request

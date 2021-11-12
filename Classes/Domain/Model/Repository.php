@@ -197,7 +197,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the data
      *
-     * @param string $data
+     * @param array $data
      */
     public function setData(array $data) : void
     {

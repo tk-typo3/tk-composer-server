@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\Domain\Repository;
 
+use Doctrine\DBAL\Driver\Exception;
 use Doctrine\DBAL\ParameterType;
 use TimonKreis\TkComposerServer\Domain\Model\Account;
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
@@ -24,6 +25,7 @@ class RepositoryRepository extends AbstractRepository
      *
      * @param Account|null $account
      * @return Repository[]
+     * @throws Exception
      */
     public function findByAccount(Account $account = null) : array
     {
@@ -82,7 +84,7 @@ class RepositoryRepository extends AbstractRepository
      *
      * @param string $packageName
      * @return Repository|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function findByPackageName(string $packageName) : ?Repository
     {

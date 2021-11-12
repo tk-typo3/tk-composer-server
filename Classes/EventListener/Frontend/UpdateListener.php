@@ -35,7 +35,7 @@ class UpdateListener extends AbstractFrontendListener
     protected function execute() : void
     {
         if (!ExtconfService::get('updateUri')
-            || $this->frontendRequestEvent->getUri() != ExtconfService::get('updateUri')
+            || $this->frontendRequestEvent->getUri() !== ExtconfService::get('updateUri')
         ) {
             return;
         }

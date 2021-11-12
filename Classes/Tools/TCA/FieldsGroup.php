@@ -24,13 +24,13 @@ class FieldsGroup
      */
     public static function group(array &$tca, array $fields, string $label = '', string $palette = '') : void
     {
-        if ($palette == '') {
+        if ($palette === '') {
             $palette = implode('__', $fields);
         }
 
         $tca['palettes'][$palette]['showitem'] = implode(', ', $fields);
 
-        if ($label != '') {
+        if ($label !== '') {
             $tca['palettes'][$palette]['label'] = $label;
         }
 
@@ -39,7 +39,7 @@ class FieldsGroup
         $filteredFields = [];
 
         foreach ($availableFields as $field) {
-            if (in_array($field, $fields)) {
+            if (in_array($field, $fields, true)) {
                 if (!$paletteInserted) {
                     $paletteInserted = true;
 

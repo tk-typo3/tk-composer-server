@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
-use TimonKreis\TkComposerServer\Domain\Model\Repository;
+use Doctrine\DBAL\Driver\Exception;
 use TimonKreis\TkComposerServer\Domain\Repository\AccountRepository;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\AccountService;
@@ -53,7 +53,7 @@ class WebListener extends AbstractFrontendListener
     }
 
     /**
-     *
+     * @throws Exception
      */
     protected function execute() : void
     {
@@ -62,34 +62,31 @@ class WebListener extends AbstractFrontendListener
             return;
         }
 
-        if ($this->frontendRequestEvent->getUri() == 'login' || $this->frontendRequestEvent->getUri() == 'logout') {
+        if ($this->frontendRequestEvent->getUri() === 'login') {
             $suffix = '';
+            $username = $_POST['username'] ?? '';
+            $password = $_POST['password'] ?? '';
 
-            if ($this->frontendRequestEvent->getUri() == 'login') {
-                $username = $_POST['username'] ?? '';
-                $password = $_POST['password'] ?? '';
-
-                if ($this->accountRepository->findByUsernameAndPassword($username, $password)) {
-                    setcookie(
-                        ExtconfService::get('frontend/cookieName'),
-                        $username . ':' . $this->accountService->getPasswordHashByPassword($password),
-                        time() + ExtconfService::get('frontend/cookieLifetime')
-                    );
-                } else {
-                    // Prevent brute-forcing
-                    sleep(ExtconfService::get('frontend/bruteForceSleepDuration'));
-
-                    $suffix = 'login-error';
-                }
+            if ($this->accountRepository->findByUsernameAndPassword($username, $password)) {
+                setcookie(
+                    ExtconfService::get('frontend/cookieName'),
+                    $username . ':' . $this->accountService->getPasswordHashByPassword($password),
+                    time() + ExtconfService::get('frontend/cookieLifetime')
+                );
             } else {
-                // Invalidate cookie
-                setcookie(ExtconfService::get('frontend/cookieName'), '', time() - 86400);
+                // Prevent brute-forcing
+                sleep(ExtconfService::get('frontend/bruteForceSleepDuration'));
+
+                $suffix = '?login-error';
             }
 
-            header('Location: /' . ($suffix ? '?' . $suffix : ''), true, 302);
+            header('Location: /' . $suffix, true, 302);
+        } elseif ($this->frontendRequestEvent->getUri() === 'logout') {
+            // Invalidate cookie
+            setcookie(ExtconfService::get('frontend/cookieName'), '', time() - 86400);
 
-            exit;
-        } elseif ($this->frontendRequestEvent->getUri() == '') {
+            header('Location: /', true, 302);
+        } elseif ($this->frontendRequestEvent->getUri() === '') {
             /** @var Site $site */
             $site = $this->frontendRequestEvent->getRequest()->getAttribute('site');
 
@@ -105,7 +102,6 @@ class WebListener extends AbstractFrontendListener
             $repositories = $this->repositoryRepository->findByAccount($account);
             $packages = [];
 
-            /** @var Repository $repository */
             foreach ($repositories as $repository) {
                 if (!$repository->getData()) {
                     continue;

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
+use Doctrine\DBAL\Driver\Exception;
 use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\AccountService;
 use TimonKreis\TkComposerServer\Service\ExtconfService;
@@ -37,11 +38,11 @@ class PackagesJsonListener extends AbstractFrontendListener
     }
 
     /**
-     *
+     * @throws Exception
      */
     protected function execute() : void
     {
-        if ($this->frontendRequestEvent->getUri() != 'packages.json') {
+        if ($this->frontendRequestEvent->getUri() !== 'packages.json') {
             return;
         }
 

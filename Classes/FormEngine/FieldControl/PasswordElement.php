@@ -25,18 +25,15 @@ class PasswordElement extends InputTextElement
     {
         $parent = parent::render();
 
-        $parameterArray = $this->data['parameterArray'];
-        $evalList = GeneralUtility::trimExplode(',', $parameterArray['fieldConf']['config']['eval'], true);
-
         $attributes = [
             'value' => '',
             'id' => StringUtility::getUniqueId('formengine-input-'),
             'class' => 'form-control t3js-clearable hasDefaultValue',
             'data-formengine-input-params' => json_encode([
-                'field' => $parameterArray['itemFormElName'],
-                'evalList' => implode(',', $evalList),
+                'field' => $this->data['parameterArray']['itemFormElName'],
+                'evalList' => $this->data['parameterArray']['fieldConf']['config']['eval'],
             ]),
-            'data-formengine-input-name' => $parameterArray['itemFormElName'],
+            'data-formengine-input-name' => $this->data['parameterArray']['itemFormElName'],
         ];
 
         /** @var StandaloneView $standaloneView */
@@ -46,8 +43,8 @@ class PasswordElement extends InputTextElement
         );
         $standaloneView->assignMultiple([
             'attributes' => GeneralUtility::implodeAttributes($attributes, true),
-            'name' => $parameterArray['itemFormElName'],
-            'value' => htmlspecialchars($parameterArray['itemFormElValue']),
+            'name' => $this->data['parameterArray']['itemFormElName'],
+            'value' => htmlspecialchars($this->data['parameterArray']['itemFormElValue']),
             'id' => $attributes['id'],
             'icon' => $this->iconFactory->getIcon('actions-synchronize', Icon::SIZE_SMALL)->render(),
         ]);

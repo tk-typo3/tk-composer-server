@@ -17,7 +17,7 @@ class RobotsTxtListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        if ($this->frontendRequestEvent->getUri() != 'robots.txt') {
+        if ($this->frontendRequestEvent->getUri() !== 'robots.txt') {
             return;
         }
 

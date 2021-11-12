@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\Domain\Repository;
 
+use Doctrine\DBAL\Driver\Exception;
 use TimonKreis\TkComposerServer\Domain\Model\Account;
 use TimonKreis\TkComposerServer\Service\AccountService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -24,6 +25,7 @@ class AccountRepository extends AbstractRepository
      * @param string $username
      * @param string $password
      * @return Account|null
+     * @throws Exception
      */
     public function findByUsernameAndPassword(string $username, string $password) : ?Account
     {
@@ -46,6 +48,7 @@ class AccountRepository extends AbstractRepository
      * @param string $username
      * @param string $passwordHash
      * @return Account|null
+     * @throws Exception
      */
     public function findByUsernameAndPasswordHash(string $username, string $passwordHash) : ?Account
     {
@@ -56,7 +59,7 @@ class AccountRepository extends AbstractRepository
             ->where($queryBuilder->expr()->eq('username', $queryBuilder->createNamedParameter($username)))
             ->setMaxResults(1);
 
-        $account = $this->getMappedData(Account::class, $query->execute()->fetchAll());
+        $account = $this->getMappedData(Account::class, $query->execute()->fetchAllAssociative());
 
         if (!$account) {
             return null;
@@ -68,6 +71,6 @@ class AccountRepository extends AbstractRepository
         /** @var Account $account */
         $account = $account[0];
 
-        return $accountService->getPasswordHashByPassword($account->getPassword()) == $passwordHash ? $account : null;
+        return $accountService->getPasswordHashByPassword($account->getPassword()) === $passwordHash ? $account : null;
     }
 }

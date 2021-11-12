@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace TimonKreis\TkComposerServer\Service;
 
+use Doctrine\DBAL\Driver\Exception;
 use TimonKreis\TkComposerServer\Domain\Model\Account;
 use TimonKreis\TkComposerServer\Domain\Repository\AccountRepository;
 use TYPO3\CMS\Core\SingletonInterface;
@@ -33,6 +34,7 @@ class AccountService implements SingletonInterface
      * Get authorized account
      *
      * @return Account
+     * @throws Exception
      */
     public function getAuthorizedAccount() : ?Account
     {
@@ -49,7 +51,7 @@ class AccountService implements SingletonInterface
         $username = trim($_SERVER['PHP_AUTH_USER']);
         $password = trim($_SERVER['PHP_AUTH_PW']);
 
-        if ($username == '' || $password == '') {
+        if ($username === '' || $password === '') {
             return null;
         }
 

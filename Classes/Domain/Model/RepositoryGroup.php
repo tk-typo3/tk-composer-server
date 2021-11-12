@@ -25,7 +25,7 @@ class RepositoryGroup extends AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TimonKreis\TkComposerServer\Domain\Model\Repository>
      */
-    protected $repositories = null;
+    protected $repositories;
 
     /**
      * __construct
