@@ -34,6 +34,7 @@ class PasswordElement extends InputTextElement
                 'evalList' => $this->data['parameterArray']['fieldConf']['config']['eval'],
             ]),
             'data-formengine-input-name' => $this->data['parameterArray']['itemFormElName'],
+            'style' => 'font-family:monospace',
         ];
 
         /** @var StandaloneView $standaloneView */
