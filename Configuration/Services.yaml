@@ -9,7 +9,7 @@ services:
   TimonKreis\TkComposerServer\Command\UpdatePackagesCommand:
     tags:
       - name: console.command
-        command: composerserver:update
+        command: composer-server:update
   TimonKreis\TkComposerServer\EventListener\Frontend\PackagesJsonListener:
     tags:
       - name: event.listener
