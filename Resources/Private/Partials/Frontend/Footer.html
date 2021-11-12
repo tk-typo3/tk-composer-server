@@ -3,31 +3,29 @@
         xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
         xmlns:composerserver="http://typo3.org/ns/TimonKreis/TkComposerServer/ViewHelpers">
 
-<footer class="page-footer font-small bg-dark text-white mt-3 pt-4">
-    <div class="container text-md-left">
-        <div class="row">
-            <div class="col-md-6 mt-md-0 my-3">
-                <h5 class="text-uppercase">{composerserver:extconf(key: 'title')}</h5>
-                <f:if condition="{composerserver:extconf(key: 'footer/description')}">
-                    <p class="text-end">{composerserver:extconf(key: 'footer/description')}</p>
-                </f:if>
+<footer class="page-footer font-small bg-dark text-center text-white mt-3 pt-4">
+    <f:if condition="{composerserver:extconf(key: 'footer/description')}">
+        <div class="container text-md-start">
+            <div class="row">
+                <div class="col-12 my-3">
+                    {composerserver:extconf(key: 'footer/description')}
+                </div>
             </div>
         </div>
-    </div>
+    </f:if>
 
-    <f:if condition="{composerserver:extconf(key: 'footer/name')}">
-        <div class="footer-copyright text-center py-3">
+    <f:if condition="{composerserver:extconf(key: 'footer/copyrightName')}">
+        <div class="footer-copyright py-3">
             &copy;{f:format.date(date: 'now', format: 'Y')}
-            <f:if condition="{composerserver:extconf(key: 'footer/homepage')}">
+            <f:if condition="{composerserver:extconf(key: 'footer/copyrightHomepage')}">
                 <f:then>
-                    <a href="{composerserver:extconf(key: 'footer/homepage')}"
+                    <a class="text-white"
+                            href="{composerserver:extconf(key: 'footer/copyrightHomepage')}"
                             rel="noopener noreferrer"
-                            target="_blank">
-                        {composerserver:extconf(key: 'footer/name')}
-                    </a>
+                            target="_blank">{composerserver:extconf(key: 'footer/copyrightName')}</a>
                 </f:then>
                 <f:else>
-                    {composerserver:extconf(key: 'footer/name')}
+                    {composerserver:extconf(key: 'footer/copyrightName')}
                 </f:else>
             </f:if>
             <f:if condition="{composerserver:extConf(key: 'footer/copyrightNotice')}">
