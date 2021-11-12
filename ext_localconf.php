@@ -17,10 +17,22 @@ defined('TYPO3_MODE') || die();
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY]
         = TimonKreis\TkComposerServer\Hooks\UpdateHook::class;
 
-    $extconf = &$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['tk_composer_server'];
+    $extconf = &$GLOBALS['TYPO3_CONF_VARS']['EXTCONF'][$_EXTKEY];
 
     if (!isset($extconf['frontend']['disable'])) {
         $extconf['frontend']['disable'] = false;
+    }
+
+    if (!isset($extconf['frontend']['tpl']['layouts'])) {
+        $extconf['frontend']['tpl']['layouts'] = ['EXT:' . $_EXTKEY . '/Resources/Private/Layouts'];
+    }
+
+    if (!isset($extconf['frontend']['tpl']['partials'])) {
+        $extconf['frontend']['tpl']['partials'] = ['EXT:' . $_EXTKEY . '/Resources/Private/Partials'];
+    }
+
+    if (!isset($extconf['frontend']['tpl']['main'])) {
+        $extconf['frontend']['tpl']['main'] = 'EXT:' . $_EXTKEY . '/Resources/Private/Templates/Main.html';
     }
 
     if (!isset($extconf['frontend']['cookieName'])) {
@@ -52,5 +64,5 @@ defined('TYPO3_MODE') || die();
     }
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']
-        = 'EXT:tk_composer_server/Resources/Public/Icons/logo-white.svg';
+        = 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/logo-white.svg';
 })('tk_composer_server');

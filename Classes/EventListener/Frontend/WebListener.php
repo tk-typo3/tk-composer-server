@@ -129,9 +129,9 @@ class WebListener extends AbstractFrontendListener
 
             /** @var StandaloneView $standaloneView */
             $standaloneView = GeneralUtility::makeInstance(StandaloneView::class);
-            $standaloneView->setLayoutRootPaths(['EXT:tk_composer_server/Resources/Private/Layouts']);
-            $standaloneView->setPartialRootPaths(['EXT:tk_composer_server/Resources/Private/Partials']);
-            $standaloneView->setTemplatePathAndFilename('EXT:tk_composer_server/Resources/Private/Templates/Main.html');
+            $standaloneView->setLayoutRootPaths(ExtconfService::get('frontend/tpl/layouts'));
+            $standaloneView->setPartialRootPaths(ExtconfService::get('frontend/tpl/partials'));
+            $standaloneView->setTemplatePathAndFilename(ExtconfService::get('frontend/tpl/main'));
             $standaloneView->assignMultiple([
                 'packages' => array_values($packages),
                 'isLoggedIn' => is_object($account),
