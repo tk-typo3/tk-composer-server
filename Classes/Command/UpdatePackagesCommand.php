@@ -31,7 +31,7 @@ class UpdatePackagesCommand extends Command
      */
     protected function configure() : void
     {
-        $this->setDescription('Update packages')
+        $this->setDescription('Updates all composer packages in database.')
             ->setHelp('Updates all composer packages in database.')
             ->addOption('force-reload', 'f', InputOption::VALUE_NONE, 'Force full reload of all packages');
     }
