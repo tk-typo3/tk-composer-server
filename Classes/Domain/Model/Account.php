@@ -186,7 +186,7 @@ class Account extends AbstractEntity
     }
 
     /**
-     * Removes a Repository
+     * Removes a repository
      *
      * @param Repository $repository
      */
