@@ -14,7 +14,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Configuration option for brute force sleep duration added.
   * Option added to disable update URI.
 * Changed
-  * Password field changed to password type.
   * Configuration variable for update URI moved to _ext_localconf.php_.
   * Composer cache directory set.
   * Default value for frontend disabling added.
