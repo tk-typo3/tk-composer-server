@@ -40,6 +40,8 @@ class UpdateListener extends AbstractFrontendListener
             return;
         }
 
+        set_time_limit(0);
+
         $errors = $this->updateService->updateAllRepositories();
         $data = [
             'status' => 'ok',
