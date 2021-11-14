@@ -304,7 +304,7 @@
             "sourceLanguage": "en",
             "state": "stable",
             "targetVersion": "10.4.0-10.4.99",
-            "version": "1.2.0"
+            "version": "1.2.1"
         },
         "extensionKey": "tk_composer_server",
         "name": "Composer Server",
