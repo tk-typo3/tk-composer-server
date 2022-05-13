@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace TimonKreis\TkComposerServer\Domain\Repository;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\Domain\Repository
  */
 class RepositoryGroupRepository extends AbstractRepository

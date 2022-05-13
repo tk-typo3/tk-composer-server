@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Filter packages
   document.getElementById('filter').addEventListener('keyup', function() {
-    var filter = this.value;
+    let filter = this.value;
 
     document.getElementById('packages').querySelectorAll('.package').forEach(function(element) {
       if (filter.length > 0) {
@@ -21,28 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Register event to copy to clipboard
   document.querySelectorAll('[data-clipboard]').forEach(function(element) {
-    element.addEventListener('click', function() {
-      var textarea = document.createElement('textarea');
-
-      textarea.value = element.dataset.clipboard;
-
-      document.body.appendChild(textarea);
-
-      textarea.focus();
-      textarea.select();
-
-      try {
-        document.execCommand('copy');
-      } catch(e) {}
-
-      document.body.removeChild(textarea);
+    element.addEventListener('click', async function() {
+      await navigator.clipboard.writeText(element.dataset.clipboard);
     })
   });
 
   // Toggle login mask
   if (document.getElementById('login-form-button')) {
     document.getElementById('login-form-button').addEventListener('click', function(event) {
-      var mask = document.getElementById('login-mask');
+      let mask = document.getElementById('login-mask');
 
       event.preventDefault();
 

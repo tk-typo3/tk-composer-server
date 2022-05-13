@@ -19,11 +19,10 @@ overwriteSettings:
   ext_localconf.php: merge
   ext_tables.php: merge
   ext_tables.sql: merge
-  ext_typoscript_setup.txt: merge
 
 staticDateInXliffFiles: 2021-11-01T00:00:00Z
 
-skipDocComment
+skipDocComment: true
 
 classBuilder:
   Controller:

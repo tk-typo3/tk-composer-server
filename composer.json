@@ -17,9 +17,12 @@
 		"ext-json": "*",
 		"composer/composer": "^2.0",
 		"typo3/cms-backend": "^10.4",
-		"typo3/cms-extbase": "*",
-		"typo3/cms-fluid": "*",
-		"typo3/cms-frontend": "*"
+		"typo3/cms-extbase": "^10.4",
+		"typo3/cms-fluid": "^10.4",
+		"typo3/cms-frontend": "^10.4"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
 	},
 	"suggest": {
 		"typo3/cms-scheduler": "Use TYPO3 scheduler to update packages in planned intervals."
@@ -41,6 +44,10 @@
 	},
 	"config": {
 		"vendor-dir": ".Build/vendor",
-		"bin-dir": ".Build/bin"
+		"bin-dir": ".Build/bin",
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		}
 	}
 }

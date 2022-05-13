@@ -13,6 +13,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposer
  */
 class ExtconfViewHelper extends AbstractViewHelper

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
  */
 class RobotsTxtListener extends AbstractFrontendListener

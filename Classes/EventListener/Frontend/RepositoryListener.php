@@ -13,6 +13,7 @@ use TimonKreis\TkComposerServer\Domain\Repository\RepositoryRepository;
 use TimonKreis\TkComposerServer\Service\AccountService;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
  */
 class RepositoryListener extends AbstractFrontendListener
@@ -42,7 +43,7 @@ class RepositoryListener extends AbstractFrontendListener
      */
     protected function execute() : void
     {
-        $pattern = '/^include\/' . Repository::PACKAGE_NAME_PATTERN . '\$[0-9a-f]{64}\.json$/';
+        $pattern = '/^include\/' . Repository::PACKAGE_NAME_PATTERN . '\$[\da-f]{64}\.json$/';
 
         if (!preg_match($pattern, $this->frontendRequestEvent->getUri())) {
             return;
@@ -54,18 +55,18 @@ class RepositoryListener extends AbstractFrontendListener
         $repository = $this->repositoryRepository->findByPackageName($packageName);
 
         if (!$repository) {
-            throw new \Exception(sprintf('Package "%s" does not exist.', $packageName), 1603305837);
+            throw new \RuntimeException(sprintf('Package "%s" does not exist.', $packageName), 1603305837);
         }
 
         if ($repository->getChecksum() !== $checksum) {
-            throw new \Exception(sprintf('Invalid hash for package "%s".', $packageName), 1603305845);
+            throw new \RuntimeException(sprintf('Invalid hash for package "%s".', $packageName), 1603305845);
         }
 
         if ($repository->getAccess() !== Repository::ACCESS_PUBLIC) {
             $account = $this->accountService->getAuthorizedAccount();
 
             if (!$account) {
-                throw new \Exception(sprintf('Unable to access package "%s".', $packageName), 1603305970);
+                throw new \RuntimeException(sprintf('Unable to access package "%s".', $packageName), 1603305970);
             }
 
             if ($repository->getAccess() === Repository::ACCESS_PRIVATE && !$account->getAllRepositories()) {
@@ -81,7 +82,7 @@ class RepositoryListener extends AbstractFrontendListener
                 }
 
                 if (!$allowed) {
-                    throw new \Exception(sprintf('Unable to access package "%s".', $packageName), 1603306135);
+                    throw new \RuntimeException(sprintf('Unable to access package "%s".', $packageName), 1603306135);
                 }
             }
         }

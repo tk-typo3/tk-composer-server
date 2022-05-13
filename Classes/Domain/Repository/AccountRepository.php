@@ -13,6 +13,7 @@ use TimonKreis\TkComposerServer\Service\AccountService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\Domain\Repository
  */
 class AccountRepository extends AbstractRepository

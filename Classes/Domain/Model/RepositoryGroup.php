@@ -23,12 +23,12 @@ class RepositoryGroup extends AbstractEntity
 
     /**
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TimonKreis\TkComposerServer\Domain\Model\Repository>
+     * @var ObjectStorage<Repository>
      */
     protected $repositories;
 
     /**
-     * __construct
+     *
      */
     public function __construct()
     {
@@ -50,6 +50,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Returns the name
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getName() : string
@@ -60,6 +61,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Sets the name
      *
+     * @noinspection PhpUnused
      * @param string $name
      */
     public function setName(string $name) : void
@@ -70,6 +72,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Adds a repository
      *
+     * @noinspection PhpUnused
      * @param Repository $repository
      */
     public function addRepository(Repository $repository) : void
@@ -80,6 +83,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Removes a repository
      *
+     * @noinspection PhpUnused
      * @param Repository $repository
      */
     public function removeRepository(Repository $repository) : void
@@ -90,6 +94,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Returns the repositories
      *
+     * @noinspection PhpUnused
      * @return ObjectStorage<Repository>
      */
     public function getRepositories() : ObjectStorage
@@ -100,6 +105,7 @@ class RepositoryGroup extends AbstractEntity
     /**
      * Sets the repositories
      *
+     * @noinspection PhpUnused
      * @param ObjectStorage<Repository> $repositories
      */
     public function setRepositories(ObjectStorage $repositories) : void

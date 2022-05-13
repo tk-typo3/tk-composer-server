@@ -12,6 +12,7 @@ use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TimonKreis\TkComposerServer\Service\UpdateService;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
  */
 class UpdateListener extends AbstractFrontendListener

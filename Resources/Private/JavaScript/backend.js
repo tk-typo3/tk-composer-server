@@ -1,11 +1,11 @@
 define(['jquery'], function($) {
-  var ComposerServer = {};
+  let ComposerServer = {};
 
   /**
    * @param {string} id
    */
   ComposerServer.generatePassword = function(id) {
-    var input = $('#' + id),
+    let input = $('#' + id),
       label = $('#' + id + '-label');
 
     label.click(function() {
@@ -18,7 +18,7 @@ define(['jquery'], function($) {
       label.trigger('click');
 
       // Wait until form initialization is finished to trigger change event
-      var interval = window.setInterval(function() {
+      let interval = window.setInterval(function() {
         if (input.attr('data-formengine-input-initialized')) {
           input.trigger('change');
 

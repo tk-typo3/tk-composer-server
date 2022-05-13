@@ -18,6 +18,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
  */
 class WebListener extends AbstractFrontendListener

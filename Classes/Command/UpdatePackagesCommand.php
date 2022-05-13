@@ -17,6 +17,7 @@ use TimonKreis\TkComposerServer\Service\UpdateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\Command
  */
 class UpdatePackagesCommand extends Command

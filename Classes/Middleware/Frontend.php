@@ -51,7 +51,7 @@ class Frontend implements MiddlewareInterface
             $this->eventDispatcher->dispatch($requestEvent);
 
             if (!$requestEvent->getResponse()) {
-                throw new \Exception('Invalid frontend request.');
+                throw new \RuntimeException('Invalid frontend request.');
             }
         } catch (\Exception $e) {
             $response = new Response();

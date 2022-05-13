@@ -14,6 +14,7 @@ use TimonKreis\TkComposerServer\Domain\Model\Repository;
 use TimonKreis\TkComposerServer\Domain\Model\RepositoryGroup;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\Domain\Repository
  */
 class RepositoryRepository extends AbstractRepository
@@ -52,15 +53,15 @@ class RepositoryRepository extends AbstractRepository
                 foreach ($account->getRepositoryGroups() as $repositoryGroup) {
                     /** @var Repository $repository */
                     foreach ($repositoryGroup->getRepositories() as $repository) {
-                        $repositoryUids[$repository->getUid()]
-                            = $queryBuilder->createNamedParameter($repository->getUid(), ParameterType::INTEGER);
+                        $uid = $repository->getUid();
+                        $repositoryUids[$uid] = $queryBuilder->createNamedParameter($uid, ParameterType::INTEGER);
                     }
                 }
 
                 /** @var Repository $repository */
                 foreach ($account->getRepositories() as $repository) {
-                    $repositoryUids[$repository->getUid()]
-                        = $queryBuilder->createNamedParameter($repository->getUid(), ParameterType::INTEGER);
+                    $uid = $repository->getUid();
+                    $repositoryUids[$uid] = $queryBuilder->createNamedParameter($uid, ParameterType::INTEGER);
                 }
 
                 if ($repositoryUids) {

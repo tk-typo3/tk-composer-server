@@ -13,6 +13,7 @@ use TimonKreis\TkComposerServer\Service\AccountService;
 use TimonKreis\TkComposerServer\Service\ExtconfService;
 
 /**
+ * @noinspection PhpUnused
  * @package TimonKreis\TkComposerServer\EventListener\Frontend
  */
 class PackagesJsonListener extends AbstractFrontendListener

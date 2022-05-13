@@ -34,18 +34,18 @@ class Account extends AbstractEntity
 
     /**
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TimonKreis\TkComposerServer\Domain\Model\RepositoryGroup>
+     * @var ObjectStorage<RepositoryGroup>
      */
     protected $repositoryGroups;
 
     /**
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TimonKreis\TkComposerServer\Domain\Model\Repository>
+     * @var ObjectStorage<Repository>
      */
     protected $repositories;
 
     /**
-     * __construct
+     *
      */
     public function __construct()
     {
@@ -68,6 +68,7 @@ class Account extends AbstractEntity
     /**
      * Returns the username
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getUsername() : string
@@ -78,6 +79,7 @@ class Account extends AbstractEntity
     /**
      * Sets the username
      *
+     * @noinspection PhpUnused
      * @param string $username
      */
     public function setUsername(string $username) : void
@@ -88,6 +90,7 @@ class Account extends AbstractEntity
     /**
      * Returns the password
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getPassword() : string
@@ -98,6 +101,7 @@ class Account extends AbstractEntity
     /**
      * Sets the password
      *
+     * @noinspection PhpUnused
      * @param string $password
      */
     public function setPassword(string $password) : void
@@ -108,6 +112,7 @@ class Account extends AbstractEntity
     /**
      * Returns the allRepositories flag
      *
+     * @noinspection PhpUnused
      * @return bool
      */
     public function getAllRepositories() : bool
@@ -118,6 +123,7 @@ class Account extends AbstractEntity
     /**
      * Sets the allRepositories flag
      *
+     * @noinspection PhpUnused
      * @param bool $allRepositories
      */
     public function setAllRepositories(bool $allRepositories) : void
@@ -128,6 +134,7 @@ class Account extends AbstractEntity
     /**
      * Returns the boolean state of allRepositories
      *
+     * @noinspection PhpUnused
      * @return bool
      */
     public function isAllRepositories() : bool
@@ -138,6 +145,7 @@ class Account extends AbstractEntity
     /**
      * Adds a repository group
      *
+     * @noinspection PhpUnused
      * @param RepositoryGroup $repositoryGroup
      */
     public function addRepositoryGroup(RepositoryGroup $repositoryGroup) : void
@@ -148,6 +156,7 @@ class Account extends AbstractEntity
     /**
      * Removes a repository group
      *
+     * @noinspection PhpUnused
      * @param RepositoryGroup $repository
      */
     public function removeRepositoryGroup(RepositoryGroup $repository) : void
@@ -158,6 +167,7 @@ class Account extends AbstractEntity
     /**
      * Returns the repository groups
      *
+     * @noinspection PhpUnused
      * @return ObjectStorage<RepositoryGroup>
      */
     public function getRepositoryGroups() : ObjectStorage
@@ -168,6 +178,7 @@ class Account extends AbstractEntity
     /**
      * Sets the repository groups
      *
+     * @noinspection PhpUnused
      * @param ObjectStorage<RepositoryGroup> $repositoryGroups
      */
     public function setRepositoryGroups(ObjectStorage $repositoryGroups) : void
@@ -178,6 +189,7 @@ class Account extends AbstractEntity
     /**
      * Adds a repository
      *
+     * @noinspection PhpUnused
      * @param Repository $repository
      */
     public function addRepository(Repository $repository) : void
@@ -188,6 +200,7 @@ class Account extends AbstractEntity
     /**
      * Removes a repository
      *
+     * @noinspection PhpUnused
      * @param Repository $repository
      */
     public function removeRepository(Repository $repository) : void
@@ -198,6 +211,7 @@ class Account extends AbstractEntity
     /**
      * Returns the repositories
      *
+     * @noinspection PhpUnused
      * @return ObjectStorage<Repository>
      */
     public function getRepositories() : ObjectStorage
@@ -208,6 +222,7 @@ class Account extends AbstractEntity
     /**
      * Sets the repositories
      *
+     * @noinspection PhpUnused
      * @param ObjectStorage<Repository> $repositories
      */
     public function setRepositories(ObjectStorage $repositories) : void

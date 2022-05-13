@@ -67,6 +67,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the package name
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getPackageName() : string
@@ -77,6 +78,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the package name
      *
+     * @noinspection PhpUnused
      * @param string $packageName
      */
     public function setPackageName(string $packageName) : void
@@ -87,6 +89,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the url
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getUrl() : string
@@ -97,6 +100,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the url
      *
+     * @noinspection PhpUnused
      * @param string $url
      */
     public function setUrl(string $url) : void
@@ -107,6 +111,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the type
      *
+     * @noinspection PhpUnused
      * @return int
      */
     public function getType() : int
@@ -117,6 +122,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the type
      *
+     * @noinspection PhpUnused
      * @param int $type
      */
     public function setType(int $type) : void
@@ -127,6 +133,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the access
      *
+     * @noinspection PhpUnused
      * @return int
      */
     public function getAccess() : int
@@ -137,6 +144,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the access
      *
+     * @noinspection PhpUnused
      * @param int $access
      */
     public function setAccess(int $access) : void
@@ -147,6 +155,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the hash
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getHash() : string
@@ -157,6 +166,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the hash
      *
+     * @noinspection PhpUnused
      * @param string $hash
      */
     public function setHash(string $hash) : void
@@ -167,6 +177,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the checksum
      *
+     * @noinspection PhpUnused
      * @return string
      */
     public function getChecksum() : string
@@ -177,6 +188,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the checksum
      *
+     * @noinspection PhpUnused
      * @param string $checksum
      */
     public function setChecksum(string $checksum) : void
@@ -187,6 +199,7 @@ class Repository extends AbstractEntity
     /**
      * Returns the data
      *
+     * @noinspection PhpUnused
      * @return array $data
      */
     public function getData() : array
@@ -197,6 +210,7 @@ class Repository extends AbstractEntity
     /**
      * Sets the data
      *
+     * @noinspection PhpUnused
      * @param array $data
      */
     public function setData(array $data) : void

@@ -105,11 +105,11 @@ class UpdateService implements SingletonInterface, LoggerAwareInterface
             $packages = $vcsRepository->getPackages();
 
             if ($driver === null) {
-                throw new \Exception('Unable to determine the driver');
+                throw new \RuntimeException('Unable to determine the driver');
             }
 
             if ($packages === null) {
-                throw new \Exception('Unable to determine the packages');
+                throw new \RuntimeException('Unable to determine the packages');
             }
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());

@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class UpdateHook
 {
     /**
-     * @noinspection PhpUnusedParameterInspection
+     * @noinspection PhpUnused PhpUnusedParameterInspection
      * @param string $action
      * @param string $table
      * @param int|string $uid

@@ -7,7 +7,6 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify');
 
-// Task to compile SCSS files to CSS files
 gulp.task('styles', function() {
   return gulp.src('Resources/Private/Scss/**/*.scss')
     .pipe(sourcemaps.init())
@@ -18,7 +17,6 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('Resources/Public/Css'));
 });
 
-// Task to compress javascript files
 gulp.task('scripts', function() {
   return gulp.src('Resources/Private/JavaScript/**/*.js')
     .pipe(sourcemaps.init())
