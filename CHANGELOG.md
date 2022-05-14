@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Button for list module added to directly download the `auth.json` file for any account.
 * Changed
   * Codestyle updated.
+  * Git update forced if repository URL gets updated.
 
 ## [1.2.1] - 2021-11-14
 * Fixed

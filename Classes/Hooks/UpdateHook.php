@@ -15,6 +15,7 @@ use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Messaging\FlashMessageService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * @package TimonKreis\TkComposerServer\Hooks
@@ -22,7 +23,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class UpdateHook
 {
     /**
-     * @noinspection PhpUnused PhpUnusedParameterInspection
+     * @noinspection PhpUnused
      * @param string $action
      * @param string $table
      * @param int|string $uid
@@ -44,26 +45,36 @@ class UpdateHook
             /** @var Repository $repository */
             $repository = $repositoryRepository->findByUid($uid);
 
-            if (!$repository->getPackageName()) {
-                try {
+            try {
+                // Force reset of the package name when repository URL is changed
+                if ($action === 'update' && isset($fields['url'])) {
+                    $repository->setPackageName('');
+
+                    $repositoryRepository->update($repository);
+
+                    $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+                    $persistenceManager->persistAll();
+                }
+
+                if (!$repository->getPackageName()) {
                     /** @var UpdateService $updateService */
                     $updateService = GeneralUtility::makeInstance(UpdateService::class);
                     $updateService->updateRepository($repository);
-                } catch (\Exception $e) {
-                    /** @var FlashMessage $message */
-                    $message = GeneralUtility::makeInstance(
-                        FlashMessage::class,
-                        $e->getMessage(),
-                        '',
-                        AbstractMessage::ERROR,
-                        false
-                    );
-
-                    /** @var FlashMessageService $messageService */
-                    $messageService = GeneralUtility::makeInstance(FlashMessageService::class);
-                    $messageQueue = $messageService->getMessageQueueByIdentifier();
-                    $messageQueue->addMessage($message);
                 }
+            } catch (\Exception $e) {
+                /** @var FlashMessage $message */
+                $message = GeneralUtility::makeInstance(
+                    FlashMessage::class,
+                    $e->getMessage(),
+                    '',
+                    AbstractMessage::ERROR,
+                    false
+                );
+
+                /** @var FlashMessageService $messageService */
+                $messageService = GeneralUtility::makeInstance(FlashMessageService::class);
+                $messageQueue = $messageService->getMessageQueueByIdentifier();
+                $messageQueue->addMessage($message);
             }
         }
     }
