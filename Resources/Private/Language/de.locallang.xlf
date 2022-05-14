@@ -75,6 +75,9 @@
 			<trans-unit id="Type.Git" resname="Type.Git">
 				<target>Git</target>
 			</trans-unit>
+			<trans-unit id="DownloadAuthJson" resname="DownloadAuthJson">
+				<target>auth.json herunterladen</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

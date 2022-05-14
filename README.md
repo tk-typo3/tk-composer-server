@@ -21,6 +21,7 @@ All configuration values are stored in `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['
 | `...['frontend']['bruteForceSleepDuration']` | _integer_ | Duration in seconds to sleep when trying to log in with invalid login credentials. | _2_ |
 | `...['updateUri']` | _string_ | The URL path to trigger the update command. Set this to empty to disable updates via URL. | _update_ |
 | `...['hashingAlgorithm']` | _string_ | The hashing algorithm for package checksums. See [here](https://www.php.net/manual/de/function.hash-hmac-algos.php) for other possible values. | _sha256_ |
+| `...['hostname']` | _string_ | The hostname for the server, if not `$_SERVER['HTTP_HOST']`.  | _Value of $\_SERVER['HTTP_HOST']_ |
 
 ## Updating cached packages
 There are three ways to update packages:

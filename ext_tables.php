@@ -12,3 +12,7 @@ call_user_func(static function() {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_tkcomposerserver_domain_model_repositorygroup');
 });
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+(static function(string $_EXTKEY) : void {
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['actions'][]
+        = TimonKreis\TkComposerServer\Hooks\CustomControls::class;
+})('tk_composer_server');

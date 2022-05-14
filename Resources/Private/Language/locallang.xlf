@@ -75,6 +75,9 @@
 			<trans-unit id="Type.Git" resname="Type.Git">
 				<source>Git</source>
 			</trans-unit>
+			<trans-unit id="DownloadAuthJson" resname="DownloadAuthJson">
+				<source>Download auth.json</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
