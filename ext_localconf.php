@@ -59,6 +59,10 @@ defined('TYPO3_MODE') || die();
         $extconf['updateUri'] = 'update';
     }
 
+    if (!isset($extconf['debugUri'])) {
+        $extconf['debugUri'] = '';
+    }
+
     if (!isset($extconf['hashingAlgorithm'])) {
         $extconf['hashingAlgorithm'] = 'sha256';
     }

@@ -4,4 +4,4 @@
 /node_modules
 /package-lock.json
 /Resources/Public/Icons/*.gif
-/Tests
+/Tests/*.private.env.json

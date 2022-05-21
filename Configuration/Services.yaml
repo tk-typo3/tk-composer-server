@@ -39,5 +39,11 @@ services:
         identifier: tk-composer-server-update
         event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
         after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\EventListener\Frontend\DebugListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-debug
+        event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
+        after: tk-composer-server-packagesjson
   TimonKreis\TkComposerServer\Middleware\Frontend:
     public: true

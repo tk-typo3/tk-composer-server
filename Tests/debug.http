@@ -1,0 +1,26 @@
+### GET parameters
+GET {{hostname}}/{{debugPath}}?hello=world&test=successful
+Accept: application/json
+Cache-Control: no-cache
+Cookie: XDEBUG_SESSION=PHPSTORM
+
+### POST parameters
+POST {{hostname}}/{{debugPath}}
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+Cookie: XDEBUG_SESSION=PHPSTORM
+
+hello=world&test=successful
+
+### POST body
+POST {{hostname}}/{{debugPath}}
+Content-Type: application/json
+Cache-Control: no-cache
+Cookie: XDEBUG_SESSION=PHPSTORM
+
+{
+    "hello": "world",
+    "test": "successful"
+}
+
+###
