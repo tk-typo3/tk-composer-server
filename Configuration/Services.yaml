@@ -50,6 +50,11 @@ services:
       - name: event.listener
         identifier: tk-composer-server-platform-gitea
         event: TimonKreis\TkComposerServer\Event\UpdateListener\UpdateEvent
+  TimonKreis\TkComposerServer\EventListener\Frontend\Platforms\GitHubListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-platform-github
+        event: TimonKreis\TkComposerServer\Event\UpdateListener\UpdateEvent
   TimonKreis\TkComposerServer\EventListener\Frontend\Platforms\GitLabListener:
     tags:
       - name: event.listener

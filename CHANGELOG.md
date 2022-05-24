@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Event added to handle update requests for specific platforms and to avoid forcing full updates of all repositories.
   * Platform listener for [Gitea](https://gitea.io/) added.
   * Platform listener for [GitLab](https://gitlab.com/) added.
+  * Platform listener for [GitHub](https://github.com/) added.
 * Changed
   * Filter for invalid URLs in platform listeners added.
   * Platform listeners optimized.
