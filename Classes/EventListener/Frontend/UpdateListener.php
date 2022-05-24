@@ -8,8 +8,11 @@ declare(strict_types = 1);
 namespace TimonKreis\TkComposerServer\EventListener\Frontend;
 
 use TimonKreis\TkComposerServer\Domain\Model\Repository;
+use TimonKreis\TkComposerServer\Event\UpdateListener\UpdateEvent;
 use TimonKreis\TkComposerServer\Service\ExtconfService;
 use TimonKreis\TkComposerServer\Service\UpdateService;
+use TYPO3\CMS\Core\EventDispatcher\EventDispatcher;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * @noinspection PhpUnused
@@ -23,11 +26,18 @@ class UpdateListener extends AbstractFrontendListener
     protected $updateService;
 
     /**
-     * @param UpdateService $updateService
+     * @var EventDispatcher
      */
-    public function __construct(UpdateService $updateService)
+    protected $eventDispatcher;
+
+    /**
+     * @param UpdateService $updateService
+     * @param EventDispatcher $eventDispatcher
+     */
+    public function __construct(UpdateService $updateService, EventDispatcher $eventDispatcher)
     {
         $this->updateService = $updateService;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -43,7 +53,24 @@ class UpdateListener extends AbstractFrontendListener
 
         set_time_limit(0);
 
-        $errors = $this->updateService->updateAllRepositories();
+        $errors = [];
+        $updateEvent = GeneralUtility::makeInstance(UpdateEvent::class, $this->frontendRequestEvent->getRequest());
+
+        $this->eventDispatcher->dispatch($updateEvent);
+
+        if ($updateEvent->getRepository()) {
+            try {
+                $this->updateService->updateRepository($updateEvent->getRepository(), true);
+            } catch (\Exception $e) {
+                $errors[] = [
+                    'repository' => $updateEvent->getRepository(),
+                    'exception' => $e->getMessage(),
+                ];
+            }
+        } else {
+            $errors = $this->updateService->updateAllRepositories();
+        }
+
         $data = [
             'status' => 'ok',
         ];
