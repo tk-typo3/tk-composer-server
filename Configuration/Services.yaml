@@ -45,5 +45,15 @@ services:
         identifier: tk-composer-server-debug
         event: TimonKreis\TkComposerServer\Event\FrontendRequestEvent
         after: tk-composer-server-packagesjson
+  TimonKreis\TkComposerServer\EventListener\Frontend\Platforms\GiteaListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-platform-gitea
+        event: TimonKreis\TkComposerServer\Event\UpdateListener\UpdateEvent
+  TimonKreis\TkComposerServer\EventListener\Frontend\Platforms\GitLabListener:
+    tags:
+      - name: event.listener
+        identifier: tk-composer-server-platform-gitlab
+        event: TimonKreis\TkComposerServer\Event\UpdateListener\UpdateEvent
   TimonKreis\TkComposerServer\Middleware\Frontend:
     public: true

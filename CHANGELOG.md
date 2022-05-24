@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+* Fixed
+  * Service registration for platform listeners fixed.
 * Added
   * Event listener added to debug incoming requests (e.g. for updates).
   * Event added to handle update requests for specific platforms and to avoid forcing full updates of all repositories.
