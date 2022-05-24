@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 * Added
   * Event listener added to debug incoming requests (e.g. for updates).
   * Event added to handle update requests for specific platforms and to avoid forcing full updates of all repositories.
+  * Platform listener for [Gitea](https://gitea.io/) added.
 
 ## [1.3.0] - 2022-05-14
 * Added
