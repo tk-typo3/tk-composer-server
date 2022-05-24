@@ -103,6 +103,7 @@ abstract class AbstractPlatformListener
     protected function determineRepository() : void
     {
         $urls = array_unique($this->urls);
+        $urls = array_filter($urls);
 
         foreach ($urls as $url) {
             try {
