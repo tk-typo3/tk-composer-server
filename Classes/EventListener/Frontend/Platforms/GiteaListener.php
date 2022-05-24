@@ -9,7 +9,7 @@ namespace TimonKreis\TkComposerServer\EventListener\Frontend\Platforms;
 
 /**
  * @noinspection PhpUnused
- * @package TimonKreis\TkComposerServer\EventListener\Frontend\Update
+ * @package TimonKreis\TkComposerServer\EventListener\Frontend\Platforms
  */
 class GiteaListener extends AbstractPlatformListener
 {
@@ -18,30 +18,26 @@ class GiteaListener extends AbstractPlatformListener
      */
     protected function execute() : void
     {
-        // Body
-        if (isset($this->getBody()['repository']['ssh_url'])) {
-            $this->urls[] = $this->getBody()['repository']['ssh_url'];
+        if (!isset($this->getHeaders()['X-Gitea-Signature'])) {
+            return;
         }
 
-        if (isset($this->getBody()['repository']['html_url'])) {
-            $this->urls[] = $this->getBody()['repository']['html_url'];
-        }
-
-        // GET or POST
-        if (isset($this->getGet()['payload']) || isset($this->getPost()['payload'])) {
+        if ($this->getHeaders()['Content-Type'] ?? '' === 'application/json') {
+            $payload = $this->getBody();
+        } else {
             $payload = json_decode($this->getGet()['payload'] ?? $this->getPost()['payload'], true);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
                 return;
             }
+        }
 
-            if (isset($payload['repository']['ssh_url'])) {
-                $this->urls[] = $payload['repository']['ssh_url'];
-            }
+        if (isset($payload['repository']['ssh_url'])) {
+            $this->urls[] = $payload['repository']['ssh_url'];
+        }
 
-            if (isset($payload['repository']['html_url'])) {
-                $this->urls[] = $payload['repository']['html_url'];
-            }
+        if (isset($payload['repository']['html_url'])) {
+            $this->urls[] = $payload['repository']['html_url'];
         }
     }
 }

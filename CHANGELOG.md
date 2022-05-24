@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Platform listener for [GitLab](https://gitlab.com/) added.
 * Changed
   * Filter for invalid URLs in platform listeners added.
+  * Platform listeners optimized.
 
 ## [1.3.0] - 2022-05-14
 * Added

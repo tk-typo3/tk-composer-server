@@ -18,6 +18,10 @@ class GitLabListener extends AbstractPlatformListener
      */
     protected function execute() : void
     {
+        if (!isset($this->getHeaders()['X-Gitlab-Event-Uuid'])) {
+            return;
+        }
+
         if (isset($this->getBody()['repository']['git_ssh_url'])) {
             $this->urls[] = $this->getBody()['repository']['git_ssh_url'];
         }
