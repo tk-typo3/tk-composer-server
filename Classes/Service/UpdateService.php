@@ -124,6 +124,8 @@ class UpdateService implements SingletonInterface, LoggerAwareInterface
             return;
         }
 
+        $this->logger->debug('Updating repository "' . $repository->getUrl() . '"');
+
         $arrayDumper = new ArrayDumper();
         $collection = [
             'packages' => [],

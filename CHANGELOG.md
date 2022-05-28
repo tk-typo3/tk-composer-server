@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
   * Platform listener for [Gitea](https://gitea.io/) added.
   * Platform listener for [GitLab](https://gitlab.com/) added.
   * Platform listener for [GitHub](https://github.com/) added.
+  * Debug logging added for updating a repository.
 * Changed
   * Filter for invalid URLs in platform listeners added.
   * Platform listeners optimized.
